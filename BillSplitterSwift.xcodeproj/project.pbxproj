@@ -36,6 +36,7 @@
 		276698EE1A76922800B9A624 /* BillSplitterSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillSplitterSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		276698F31A76922800B9A624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		276698F41A76922800B9A624 /* BillSplitterSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSplitterSwiftTests.swift; sourceTree = "<group>"; };
+		2766992C1A76C3CA00B9A624 /* ScratchPad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ScratchPad.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 			children = (
 				276698DE1A76922800B9A624 /* AppDelegate.swift */,
 				276698E01A76922800B9A624 /* ViewController.swift */,
+				2766992C1A76C3CA00B9A624 /* ScratchPad.playground */,
 				276698E21A76922800B9A624 /* Main.storyboard */,
 				276698E51A76922800B9A624 /* Images.xcassets */,
 				276698E71A76922800B9A624 /* LaunchScreen.xib */,
