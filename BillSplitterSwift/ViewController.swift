@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var totalAmountTextField: UITextField!
     @IBOutlet weak var numberOfPeopleSlider: UISlider!
     @IBOutlet weak var calculateBillButton: UIButton!
@@ -18,28 +18,28 @@ class ViewController: UIViewController {
     
     @IBAction func calculateSplitAmount(sender: AnyObject) {
         
-        // Format UI Text Field
-        
-        let inputString: NSString = totalAmountTextField.text
-        // convert to NSDecimalNumber and insert decimal point
-        if inputString.length == 1
-        {
-            let inputStringAsDouble = inputString.doubleValue / 100
-            totalAmountTextField.text = " " + formatAsCurrency(inputStringAsDouble)
-            println("Input String: \(inputString)")
-            println("as double: \(inputStringAsDouble)")
-            println("\(totalAmountTextField.text)")
-        } else
-        {
-            // Format total amount text field
-            let inputStringWithoutCurrency: NSString = inputString.substringFromIndex(2)
-            let inputStringAsDouble = inputStringWithoutCurrency.doubleValue * 10
-            totalAmountTextField.text = " " + formatAsCurrency(inputStringAsDouble)
-            println("Input String: \(inputString)")
-            println("as double: \(inputStringAsDouble)")
-            println("\(totalAmountTextField.text)")
-        }
-        calculateBillTotal()
+//        // Format UI Text Field
+//        
+//        let inputString: NSString = totalAmountTextField.text
+//        // convert to NSDecimalNumber and insert decimal point
+//        if inputString.length == 1
+//        {
+//            let inputStringAsDouble = inputString.doubleValue / 100
+//            totalAmountTextField.text = " " + formatAsCurrency(inputStringAsDouble)
+//            println("Input String: \(inputString)")
+//            println("as double: \(inputStringAsDouble)")
+//            println("\(totalAmountTextField.text)")
+//        } else
+//        {
+//            // Format total amount text field
+//            let inputStringWithoutCurrency: NSString = inputString.substringFromIndex(2)
+//            let inputStringAsDouble = inputStringWithoutCurrency.doubleValue * 10
+//            totalAmountTextField.text = " " + formatAsCurrency(inputStringAsDouble)
+//            println("Input String: \(inputString)")
+//            println("as double: \(inputStringAsDouble)")
+//            println("\(totalAmountTextField.text)")
+//        }
+//        calculateBillTotal()
         
         
         
@@ -67,22 +67,35 @@ class ViewController: UIViewController {
     }
 
     func calculateBillTotal() {
-        // Calculate
-        let inputString: NSString = totalAmountTextField.text
-        var inputStringAsDouble: Double
-        // convert to NSDecimalNumber and insert decimal point
-        if inputString.length == 1 {
-            inputStringAsDouble = inputString.doubleValue / 100
-        } else {
-            let inputStringWithoutCurrency: NSString = inputString.substringFromIndex(2)
-            inputStringAsDouble = inputStringWithoutCurrency.doubleValue
-        }
-        var sliderValue = Int(numberOfPeopleSlider.value)
-        var splitBillAmount = inputStringAsDouble / Double(sliderValue)
-        amountOwedPerPersonLabel.text = formatAsCurrency(splitBillAmount)
+//        // Calculate
+//        let inputString: NSString = totalAmountTextField.text
+//        var inputStringAsDouble: Double
+//        // convert to NSDecimalNumber and insert decimal point
+//        if inputString.length == 1 {
+//            inputStringAsDouble = inputString.doubleValue / 100
+//        } else {
+//            let inputStringWithoutCurrency: NSString = inputString.substringFromIndex(2)
+//            inputStringAsDouble = inputStringWithoutCurrency.doubleValue
+//        }
+//        var sliderValue = Int(numberOfPeopleSlider.value)
+//        var splitBillAmount = inputStringAsDouble / Double(sliderValue)
+//        amountOwedPerPersonLabel.text = formatAsCurrency(splitBillAmount)
     }
     
-    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        println("Does this fire?")
+        
+        // Format UI Text Field
+        
+        if string == "" {
+            println("delete detected")
+        } else {
+            println("all good please proceed")
+        }
+        
+        
+        return true
+    }
     
 }
 

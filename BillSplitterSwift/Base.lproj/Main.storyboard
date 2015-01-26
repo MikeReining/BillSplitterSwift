@@ -34,8 +34,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="calculateSplitAmount:" destination="BYZ-38-t0r" eventType="editingChanged" id="C06-jL-h5z"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1PV-FO-a8v"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="b5F-Fr-28O"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People #:  2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibV-np-69d">
