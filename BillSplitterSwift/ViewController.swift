@@ -15,7 +15,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var calculateBillButton: UIButton!
     @IBOutlet weak var amountOwedPerPersonLabel: UILabel!
     @IBOutlet weak var sliderValueLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var tipPercentSlider: UISlider!
+    @IBOutlet weak var tipAmountLabel: UILabel!
+    @IBOutlet weak var finalAmountLabel: UILabel!
     // NSDecimalNumber constants used in the calculateTip method
+    
     
     @IBAction func calculateSplitAmount(sender: AnyObject) {
         calculateBillTotal()
@@ -25,9 +30,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // convert slider value to an NSDecimalNumber
         let sliderValue =
         NSDecimalNumber(integer: Int(numberOfPeopleSlider.value))
-        sliderValueLabel.text = "People #: \(sliderValue)"
+        sliderValueLabel.text = "People: \(sliderValue)"
         calculateBillTotal()
     }
+    
+    @IBAction func tipSliderChanged(sender: AnyObject) {
+        let sliderValue = Int(tipPercentSlider.value)
+        tipLabel.text = "Tip: \(sliderValue)%"
+        println("\(sliderValue)")
+        calculateBillTotal()
+
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +60,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let inputString: NSString = totalAmountTextField.text
         var inputStringAsDouble = inputString.doubleValue / 100
 
-        var sliderValue = Int(numberOfPeopleSlider.value)
-        var splitBillAmount = inputStringAsDouble / Double(sliderValue)
+        var peopleSliderValue = Int(numberOfPeopleSlider.value)
+        var tipSliderValue = Int(tipPercentSlider.value)
+        var splitBillAmount = inputStringAsDouble / Double(peopleSliderValue)
         billAmountLabel.text = " Bill amount: \(formatAsCurrency(inputStringAsDouble))"
         amountOwedPerPersonLabel.text = " Bill per person: \(formatAsCurrency(splitBillAmount))"
+        var tipPerPerson = splitBillAmount * Double(tipSliderValue) / 100
+        var totalAmountOwedPerPerson = splitBillAmount + tipPerPerson
+        tipAmountLabel.text = " Tip per person: \(formatAsCurrency(tipPerPerson))"
+        finalAmountLabel.text = " Total owed per person: \(formatAsCurrency(totalAmountOwedPerPerson))"
+
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
