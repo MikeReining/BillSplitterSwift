@@ -17,20 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-Cn-W2x">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999999999999969" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Enter Bill Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yG-Dn-hbQ">
+                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1i2-PS-TlI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-Cn-W2x">
                                 <rect key="frame" x="114" y="68" width="472" height="31"/>
                                 <connections>
                                     <action selector="sliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="U8M-Jk-KfZ"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MV-Jt-wqG">
-                                <rect key="frame" x="16" y="118" width="568" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MV-Jt-wqG">
+                                <rect key="frame" x="16" y="117" width="568" height="30"/>
+                                <color key="backgroundColor" red="0.97647064920000004" green="0.96470594409999999" blue="0.52340856479999998" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="e2R-OX-RFE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7P-pz-fYu">
-                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7P-pz-fYu">
+                                <rect key="frame" x="16" y="402" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                 <connections>
@@ -38,7 +52,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="b5F-Fr-28O"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People #:  2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibV-np-69d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="People:  2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibV-np-69d">
                                 <rect key="frame" x="16" y="72" width="92" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -48,30 +62,41 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ibV-np-69d" firstAttribute="top" secondItem="P7P-pz-fYu" secondAttribute="bottom" constant="14" id="9k7-Md-OMn"/>
+                            <constraint firstItem="6yG-Dn-hbQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="CGu-oi-5QM"/>
                             <constraint firstItem="P7P-pz-fYu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Ce2-II-fjZ"/>
                             <constraint firstItem="Oe5-Cn-W2x" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="CeH-MK-meA"/>
                             <constraint firstItem="2MV-Jt-wqG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DCt-FS-a1Q"/>
-                            <constraint firstItem="2MV-Jt-wqG" firstAttribute="top" secondItem="ibV-np-69d" secondAttribute="bottom" constant="25" id="I8g-vM-AWK"/>
+                            <constraint firstItem="2MV-Jt-wqG" firstAttribute="top" secondItem="ibV-np-69d" secondAttribute="bottom" constant="24" id="I8g-vM-AWK"/>
                             <constraint firstAttribute="centerX" secondItem="Oe5-Cn-W2x" secondAttribute="centerX" constant="12.5" id="Ip2-in-hIY"/>
                             <constraint firstItem="Oe5-Cn-W2x" firstAttribute="top" secondItem="P7P-pz-fYu" secondAttribute="bottom" constant="10" id="JUo-rD-lcn"/>
+                            <constraint firstAttribute="centerX" secondItem="6yG-Dn-hbQ" secondAttribute="centerX" id="KkM-fA-hV9"/>
                             <constraint firstItem="Oe5-Cn-W2x" firstAttribute="leading" secondItem="ibV-np-69d" secondAttribute="trailing" constant="8" id="LZt-2d-Yyh"/>
                             <constraint firstItem="Oe5-Cn-W2x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pe8-GP-vgM"/>
+                            <constraint firstItem="Oe5-Cn-W2x" firstAttribute="top" secondItem="6yG-Dn-hbQ" secondAttribute="bottom" constant="10" id="RZK-g4-aR8"/>
+                            <constraint firstItem="ibV-np-69d" firstAttribute="top" secondItem="6yG-Dn-hbQ" secondAttribute="bottom" constant="14" id="YdM-F8-bFd"/>
                             <constraint firstItem="P7P-pz-fYu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="e0P-OJ-ILO"/>
                             <constraint firstItem="ibV-np-69d" firstAttribute="leading" secondItem="Oe5-Cn-W2x" secondAttribute="trailing" constant="-568" id="elh-wg-BMF"/>
                             <constraint firstAttribute="centerX" secondItem="P7P-pz-fYu" secondAttribute="centerX" id="enh-4U-A2W"/>
                             <constraint firstItem="ibV-np-69d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hzf-73-Rmn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P7P-pz-fYu" secondAttribute="bottom" constant="10" id="owc-f0-f8e"/>
+                            <constraint firstItem="6yG-Dn-hbQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qHw-r4-eFk"/>
                             <constraint firstAttribute="centerX" secondItem="2MV-Jt-wqG" secondAttribute="centerX" id="vQR-Tb-9Jj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9k7-Md-OMn"/>
                                 <exclude reference="elh-wg-BMF"/>
                                 <exclude reference="Ip2-in-hIY"/>
+                                <exclude reference="JUo-rD-lcn"/>
                                 <exclude reference="Pe8-GP-vgM"/>
+                                <exclude reference="Ce2-II-fjZ"/>
+                                <exclude reference="e0P-OJ-ILO"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="amountOwedPerPersonLabel" destination="2MV-Jt-wqG" id="rTd-Hx-4z8"/>
+                        <outlet property="billAmountLabel" destination="6yG-Dn-hbQ" id="4ML-bR-idw"/>
                         <outlet property="numberOfPeopleSlider" destination="Oe5-Cn-W2x" id="JQF-g8-7X9"/>
                         <outlet property="sliderValueLabel" destination="ibV-np-69d" id="CTN-AQ-OCY"/>
                         <outlet property="totalAmountTextField" destination="P7P-pz-fYu" id="Ja0-n3-dK8"/>

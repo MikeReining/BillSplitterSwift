@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var billAmountLabel: UILabel!
     @IBOutlet weak var totalAmountTextField: UITextField!
     @IBOutlet weak var numberOfPeopleSlider: UISlider!
     @IBOutlet weak var calculateBillButton: UIButton!
@@ -17,33 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // NSDecimalNumber constants used in the calculateTip method
     
     @IBAction func calculateSplitAmount(sender: AnyObject) {
-        
-        // Format UI Text Field
-        
-        let inputString: NSString = totalAmountTextField.text
-        // convert to NSDecimalNumber and insert decimal point
-        if inputString.length == 1
-        {
-            let inputStringAsDouble = inputString.doubleValue / 100
-            totalAmountTextField.text = " " + formatAsCurrency(inputStringAsDouble)
-            println("Input String: \(inputString)")
-            println("as double: \(inputStringAsDouble)")
-            println("\(totalAmountTextField.text)")
-        } else
-        {
-            // Format total amount text field
-            let inputStringWithoutCurrency: NSString = inputString.substringFromIndex(2)
-            let inputStringAsDouble = inputStringWithoutCurrency.doubleValue * 10
-            totalAmountTextField.text = " " + formatAsCurrency(inputStringAsDouble)
-            println("Input String: \(inputString)")
-            println("as double: \(inputStringAsDouble)")
-            println("\(totalAmountTextField.text)")
-        }
         calculateBillTotal()
-        
-        
-        
-
     }
     
     @IBAction func sliderChanged(sender: AnyObject) {
@@ -69,17 +44,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func calculateBillTotal() {
         // Calculate
         let inputString: NSString = totalAmountTextField.text
-        var inputStringAsDouble: Double
-        // convert to NSDecimalNumber and insert decimal point
-        if inputString.length == 1 {
-            inputStringAsDouble = inputString.doubleValue / 100
-        } else {
-            let inputStringWithoutCurrency: NSString = inputString.substringFromIndex(2)
-            inputStringAsDouble = inputStringWithoutCurrency.doubleValue
-        }
+        var inputStringAsDouble = inputString.doubleValue / 100
+
         var sliderValue = Int(numberOfPeopleSlider.value)
         var splitBillAmount = inputStringAsDouble / Double(sliderValue)
-        amountOwedPerPersonLabel.text = formatAsCurrency(splitBillAmount)
+        billAmountLabel.text = " Bill amount: \(formatAsCurrency(inputStringAsDouble))"
+        amountOwedPerPersonLabel.text = " Bill per person: \(formatAsCurrency(splitBillAmount))"
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
